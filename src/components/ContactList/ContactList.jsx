@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 import { StyledWrapper } from './ContactList.Styled';
-import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from '../../redux/contacts/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectContacts,
+  // selectError,
+  selectFilter,
+} from '../../redux/contacts/selectors';
+import { fetchContactsThunk } from '../../redux/contacts/operations';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
+  // const error = useSelector(selectError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContactsThunk());
+  }, [dispatch]);
 
   function filteredContacts() {
     return contacts.filter(contact =>
@@ -24,8 +35,8 @@ export const ContactList = () => {
 
   return (
     <StyledWrapper>
-      {filteredContacts().map(({ id, name, number }) => (
-        <ContactListItem key={id} id={id} name={name} number={number} />
+      {filteredContacts().map(({ id, name, phone }) => (
+        <ContactListItem key={id} id={id} name={name} number={phone} />
       ))}
     </StyledWrapper>
   );
