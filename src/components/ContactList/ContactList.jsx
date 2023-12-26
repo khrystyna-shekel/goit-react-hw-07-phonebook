@@ -2,11 +2,7 @@ import React, { useEffect } from 'react';
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 import { StyledWrapper } from './ContactList.Styled';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectContacts,
-  // selectError,
-  selectFilter,
-} from '../../redux/contacts/selectors';
+import { selectContacts, selectFilter } from '../../redux/contacts/selectors';
 import { fetchContactsThunk } from '../../redux/contacts/operations';
 
 export const ContactList = () => {
