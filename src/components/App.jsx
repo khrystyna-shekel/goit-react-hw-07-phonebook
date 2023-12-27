@@ -26,7 +26,7 @@ export const App = () => {
         <h1>Phonebook</h1>
         <ContactForm />
         <h2>Contacts</h2>
-        <Filter>{loading && <h1>is loading...</h1>}</Filter>
+        <Filter>{loading && <h1>loading...</h1>}</Filter>
         <ContactList> {error && <h1>{error}</h1>}</ContactList>
       </StyledWrapper>
     </div>

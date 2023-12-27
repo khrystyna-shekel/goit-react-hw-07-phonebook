@@ -26,7 +26,7 @@ export const contactsSlice = createSlice({
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => state => {
         state.contacts.items = payload;
-        state.isLoading = false;
+        state.contacts.isLoading = false;
       })
       .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
         state.contacts.items = state.contacts.items.filter(
@@ -39,10 +39,10 @@ export const contactsSlice = createSlice({
         state.contacts.isLoading = false;
       })
       .addCase(fetchContactsThunk.pending, state => {
-        state.isLoading = true;
+        state.contacts.isLoading = true;
       })
       .addCase(fetchContactsThunk.rejected, (state, { payload }) => {
-        state.isLoading = false;
+        state.contacts.isLoading = false;
         state.contacts.error = payload;
       });
   },
