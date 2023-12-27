@@ -5,6 +5,7 @@ import { deleteContactThunk } from '../../redux/contacts/operations';
 
 export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
+
   return (
     <StyledItem>
       <h3>

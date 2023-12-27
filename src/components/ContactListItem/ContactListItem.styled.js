@@ -7,6 +7,10 @@ export const StyledItem = styled.li`
   justify-content: space-between;
   align-items: center;
 
+  & h3 {
+    font-size: 16px;
+  }
+
   & button {
     cursor: pointer;
     border: none;
