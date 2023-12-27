@@ -24,7 +24,7 @@ export const contactsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => state => {
+      .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => {
         state.contacts.items = payload;
         state.contacts.isLoading = false;
       })
